@@ -3,7 +3,7 @@ import styles from './DiscordLink.module.scss';
 export const DiscordLink = () => {
   return (
 	<a
-	  href="https://discord.gg/k4FZe7p6"
+	  href="https://discord.gg/Gt3UmecT"
 	  target="_blank"
 	  rel="noopener noreferrer"
 	  className={styles.discordLink}
