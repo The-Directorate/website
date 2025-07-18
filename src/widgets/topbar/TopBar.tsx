@@ -1,4 +1,4 @@
-import { DiscordLink } from "../../components/discordLink/discordLink";
+import { DiscordLink } from "../../components/discordLink/DiscordLink";
 import logo from "../../assets/logo.svg";
 import styles from "./TopBar.module.scss";
 
