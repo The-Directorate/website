@@ -1,4 +1,3 @@
-import { CallsToAction } from '../../widgets/callsToAction/CallsToAction';
 import { TopBar } from '../../widgets/topbar/TopBar';
 import armWithBlock from '../../assets/arm_with_block.png';
 import styles from './Homepage.module.scss';
