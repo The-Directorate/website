@@ -1,0 +1,55 @@
+.directorImages {
+	position: absolute;
+	bottom: 25px;
+	left: 0;
+
+	width: 100%;
+
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	justify-content: center;
+
+	overflow: hidden;
+}
+
+.directorImage {
+	filter: brightness(0) saturate(100%) invert(13%) sepia(8%) saturate(1107%) hue-rotate(176deg) brightness(97%) contrast(89%);
+	align-items: flex-end;
+
+	width: 100%;
+	height: 80%;
+	object-fit: fill;
+
+	margin-top: 0;
+}
+
+.smallDirectorImage, .mediumDirectorImage, .largeDirectorImage {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	animation: moveUp 1s ease-in-out forwards;
+}
+
+@keyframes moveUp {
+  from {
+	transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.smallDirectorImage {
+	width: 15%;
+}
+
+.mediumDirectorImage {
+	width: 20%;
+}
+
+.largeDirectorImage {
+	width: 30%;
+}
