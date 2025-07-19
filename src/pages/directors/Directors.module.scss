@@ -14,7 +14,8 @@
 }
 
 .directorImage {
-	filter: brightness(0) saturate(100%) invert(13%) sepia(8%) saturate(1107%) hue-rotate(176deg) brightness(97%) contrast(89%);
+	fill: #282c34;
+
 	align-items: flex-end;
 
 	width: 100%;
@@ -52,4 +53,20 @@
 
 .largeDirectorImage {
 	width: 30%;
+}
+
+.parallaxEye {
+	position: absolute;
+	bottom: 15.85vw;
+	left: calc(50% - 0.76vw);
+
+	width: 1.5vw;
+	height: 1.5vw;
+
+	border-radius: 50%;
+	background-color: #282c34;
+
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }

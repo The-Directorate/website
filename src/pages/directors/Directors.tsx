@@ -1,8 +1,32 @@
+import { useEffect, useRef } from 'react';
+
 import blockHead from '../../assets/block.svg';
 import eyeHead from '../../assets/eye.svg';
 import styles from './Directors.module.scss';
 
 export const Directors = () => {
+	const eyeRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const handleMouseMove = (e: MouseEvent) => {
+			const { innerWidth, innerHeight } = window;
+
+			const x = (e.clientX / innerWidth) * 2 - 1;
+			const y = (e.clientY / innerHeight) * 2 - 1;
+
+			const range = 50;
+
+			if (eyeRef.current) {
+				eyeRef.current.style.transform = `translate(${x * range}%, ${y * range}%)`;
+			}
+		};
+
+		window.addEventListener("mousemove", handleMouseMove);
+		return () => {
+		window.removeEventListener("mousemove", handleMouseMove);
+		};
+	}, []);
+
 	return (
 		<main>
 			<section className={styles.directors}>
@@ -19,8 +43,8 @@ export const Directors = () => {
 			<section className={styles.directorImages}>
 				<div className={styles.smallDirectorImage}>
 					<div>
-						<h3>Director Sammie</h3>
-						<p>Chief Financial Officer</p>
+						<h3>Director Cyn</h3>
+						<p>Chief Marketing Officer</p>
 					</div>
 					<img
 						className={styles.directorImage}
@@ -51,6 +75,7 @@ export const Directors = () => {
 						src={eyeHead}
 						alt="A siluette of a person with an eye for a head."
 					/>
+					<div ref={eyeRef} className={styles.parallaxEye}></div>
 				</div>
 
 				<div className={styles.mediumDirectorImage}>
@@ -67,8 +92,8 @@ export const Directors = () => {
 
 				<div className={styles.smallDirectorImage}>
 					<div>
-						<h3>Director Cyn</h3>
-						<p>Chief Marketing Officer</p>
+						<h3>Director Sammie</h3>
+						<p>Chief Financial Officer</p>
 					</div>
 					<img
 						className={styles.directorImage}
