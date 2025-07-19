@@ -10,8 +10,8 @@ export const TopBar = () => {
 		<header className={styles.topbar}>
 			<img src={logo} alt="Logo" className={styles.logoImage} />
 			<div className={styles.titleContainer}>
-				<h1 className={styles.title}>THE DIRECTORATE</h1>
-				<p className={styles.tagLine}>FEAR IS HESITATION, HESITATION IS DEFEAT.</p>
+				<h1 className={styles.title}>The Directorate</h1>
+				<h2 className={styles.tagLine}>Fear is hesitation, hesitation is defeat.</h2>
 			</div>
 			<CallsToAction />
 		</header>
