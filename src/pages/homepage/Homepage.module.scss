@@ -4,13 +4,12 @@
   min-height: 200px;
 }
 
+
 .armImage {
-	fill: #282c34;
+	filter: var(--directorate-filter-black);
 
   height: 80%;
   width: auto;
-
-  z-index: -1;
 
   position: fixed;
   bottom: 0;
@@ -18,14 +17,47 @@
 
   transform: rotate(90deg);
 
+  user-select: none;
+	pointer-events: none;
+
   transform-origin: bottom left;
-  animation: rotateUp 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: rotateUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 
   @media (max-width: 600px) {
     opacity: 0.15;
-    right: auto;
-    top: auto;
-    position: fixed;
+    bottom: 0;
+  }
+}
+
+.armImageRed {
+  right: 4%;
+  bottom: -2%;
+  z-index: -2;
+
+  opacity: 0.66;
+
+  animation: rotateUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+  filter: var(--directorate-filter-red);
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+}
+
+.armImageOrange {
+  right: 3%;
+  bottom: -4%;
+  z-index: -3;
+
+  opacity: 0.33;
+
+  animation: rotateUp 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+  filter: var(--directorate-filter-orange);
+
+  @media (max-width: 600px) {
+    display: none;
   }
 }
 
@@ -51,15 +83,6 @@
   @media (max-width: 600px) {
     width: 100%;
   }
-}
-
-.joinTitle {
-  font-size: 2rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-
-  margin: 0;
-  margin-top: -14px;
 }
 
 .intro {

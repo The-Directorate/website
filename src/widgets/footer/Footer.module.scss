@@ -1,3 +1,7 @@
+.scrollingSpacer{
+	height: 60px;
+	width: 100%;
+}
 
 .footer {
 	display: flex;
@@ -5,7 +9,7 @@
 	justify-content: flex-end;
 
 	height: 40px;
-	background-color: #282c34;
+	background-color: var(--directorate-black);
   	color: rgba(255, 255, 255, 0.87);
 	position: fixed;
 	

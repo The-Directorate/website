@@ -1,3 +1,4 @@
+import discordLogo from "../../assets/discord.svg";
 import styles from './DiscordLink.module.scss';
 
 export const DiscordLink = () => {
@@ -10,7 +11,8 @@ export const DiscordLink = () => {
 	  aria-label="Join our Discord"
 	>
 	  <img
-		src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/discord.svg"
+	  	className={styles.discordLogo}
+		src={discordLogo}
 		alt="Discord"
 	  />
 	</a>

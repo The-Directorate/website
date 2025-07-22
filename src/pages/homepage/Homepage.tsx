@@ -7,13 +7,6 @@ export const Homepage = () => {
 	return (
 		<main>
 			<section className={styles.homepage}>
-				<img
-					className={styles.armImage}
-					src={armWithBlock}
-					alt="Arm holding a minecraft block high"
-					style={{ filter: 'brightness(0) saturate(100%) invert(13%) sepia(8%) saturate(1107%) hue-rotate(176deg) brightness(97%) contrast(89%)' }}
-				/>
-				
 				<section className={styles.infoSection}>
 					<h1 className={styles.joinTitle}>Welcome to the Directorate</h1>
 					<p className={styles.intro}>
@@ -28,6 +21,27 @@ export const Homepage = () => {
 					</div>
 				</section>
 			</section>
+
+
+			<div className={styles.threeOffsetsWrapper}>
+					<img
+						className={styles.armImage}
+						src={armWithBlock}
+						alt="Arm holding a minecraft block high"
+					/>
+
+					<img
+						className={`${styles.armImage} ${styles.armImageRed}`}
+						src={armWithBlock}
+						alt="Arm holding a minecraft block high"
+					/>
+
+					<img
+						className={`${styles.armImage} ${styles.armImageOrange}`}
+						src={armWithBlock}
+						alt="Arm holding a minecraft block high"
+					/>
+				</div >
 		</main>
 	)
 }

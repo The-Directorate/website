@@ -1,4 +1,4 @@
-import { DiscordLink } from "../../components/discordLink/DiscordLink"
+import { DiscordLink } from "../discordLink/DiscordLink"
 import styles from "./CallsToAction.module.scss";
 
 export const CallsToAction = () => {
