@@ -143,7 +143,7 @@ export const Board = () => {
 					<div className={styles.smallDirectorImage}>
 						<div>
 							<h2>Director Sammie</h2>
-							<p>I had to put a 5th</p>
+							<p>Chief Development Officer</p>
 						</div>
 						<img
 							className={styles.directorImage}
