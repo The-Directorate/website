@@ -1,6 +1,6 @@
 import './App.css'
 
-import { HashRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { Board } from './pages/board/Board';
 import { Directors } from './pages/directors/Directors';
@@ -12,8 +12,7 @@ import { NotFound } from './pages/notFound/NotFound';
 function App() {
   return (
     <>
-
-      <HashRouter>
+      <BrowserRouter>
         <Header />
 
         <Routes>
@@ -26,9 +25,7 @@ function App() {
         </Routes>
 
         <Footer />
-
-      </HashRouter>
-
+      </BrowserRouter>
     </>
   )
 }
