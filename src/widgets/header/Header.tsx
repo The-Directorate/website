@@ -1,5 +1,3 @@
-// import { basePath } from "../../App";
-
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 import styles from "./Header.module.scss";

@@ -1,69 +1,72 @@
-# React + TypeScript + Vite
+# Directorate Website
+A React + Vite site for "The Directorate," a company in the Ish State Minecraft event (season 2.7: The Purge).
+This project uses TypeScript, SCSS modules, and is set up for deployment to GitHub Pages.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Quick Start
+### 1. Download / Clone the Repository
+```bash
+git clone https://github.com/The-Directorate/website
+cd website
+```
+### 2. Install Dependencies
+Make sure you have Node.js ≥ 20.12.0 installed.
+Then run:
+```bash
+npm install
+```
+### 3. Run Locally
+Start the dev server with:
+```bash
+npm run dev
+```
+Visit http://localhost:5173/website/ in your browser.
+All code changes will hot-reload automatically.
 
-Currently, two official plugins are available:
+## ✍️ Adding Pages, Components, or Styles
+### Create a new page:
+Add a .tsx file in src/pages/ and register it as a <Route /> in App.tsx.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Add a new component:
+Place your component in src/components/ or a relevant folder.
+Import and use in any page as needed.
 
-## Expanding the ESLint configuration
+### Style with SCSS modules:
+Create a .module.scss file in the same folder as your component.
+Import styles in your component:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```tsx
+import styles from './YourComponent.module.scss';
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Apply classes:
 ```
+<div className={styles.someClass}>...</div>
+```
+
+### Add an asset (image, etc.):
+Place in src/assets/ and import for use in your components.
+
+## 💡 Project Notes
+Uses React Router's HashRouter so routing works on GitHub Pages.
+
+All navigation should use `<Link to="...">` from react-router-dom, not plain `<a href="...">`.
+
+## 📂 Directory Structure (Key Folders)
+text
+/src
+  /assets         # Images & graphics
+  /components     # Reusable components
+  /pages          # App pages (Homepage, Board, Directors, etc.)
+  /widgets        # Common layout (Header, Footer, and anything that needs to call an API)
+
+## 🛠️ Requirements
+- Node.js 20.12.0 or newer
+- npm 9+
+- GitHub account (for commiting / forking)
+
+## 🤝 Contributing
+1. Fork the repository and clone your fork
+2. Create your feature branch: git checkout -b feature/your-change
+3. Make changes and commit: git commit -am 'Add your feature'
+4. Push to the branch: git push origin feature/your-change
+5. Open a Pull Request

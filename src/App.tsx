@@ -9,8 +9,6 @@ import { Header } from './widgets/header/Header';
 import { Homepage } from './pages/homepage/Homepage'
 import { NotFound } from './pages/notFound/NotFound';
 
-export const basePath = '/directorate-website/#'
-
 function App() {
   return (
     <>
