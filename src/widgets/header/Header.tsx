@@ -7,12 +7,12 @@ import styles from "./Header.module.scss";
 export const Header = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
 
-	const [slogan, setSlogan] = useState();
+	const [slogan, setSlogan] = useState<{ slogan: string, director: string } | undefined>();
 
 	useEffect(() => {
 		fetch("https://the-directorate.com:3000/slogan")
 			.then((res) => res.json())
-			.then((data) => setSlogan(data.slogan))
+			.then((data) => setSlogan({"slogan": data.slogan, "director": data.director}))
 			.catch(() => {});
 	}, []);
 
@@ -25,7 +25,7 @@ export const Header = () => {
 					<img src={logo} alt="Logo" className={styles.logoImage} />
 					<div className={styles.titleContainer}>
 						<h2 className={styles.title}>The Directorate</h2>
-						<h3 className={styles.slogan}>{slogan || <>&nbsp;</>}</h3>
+						<h3 className={styles.slogan}>{slogan ? ("\"" + slogan.slogan + "\" - " + slogan.director) : <>&nbsp;</>}</h3>
 					</div>
 				</Link>
 
