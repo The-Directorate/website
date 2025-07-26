@@ -27,4 +27,4 @@ docker run -d -p 80:80 -p 443:443 \
     -v $KEY_PATH:/etc/nginx/certs/privkey.pem:ro \
     $IMAGE_NAME
 
-echo "Deployment complete!"
+echo "Website deployment complete!"
