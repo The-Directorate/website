@@ -1,10 +1,20 @@
+import { useEffect, useState } from "react";
+
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 import styles from "./Header.module.scss";
-import { useState } from "react";
 
 export const Header = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
+
+	const [slogan, setSlogan] = useState();
+
+	useEffect(() => {
+		fetch("https://the-directorate.com:3000/slogan")
+			.then((res) => res.json())
+			.then((data) => setSlogan(data.slogan))
+			.catch(() => {});
+	}, []);
 
 	return (
 		<>
@@ -15,7 +25,7 @@ export const Header = () => {
 					<img src={logo} alt="Logo" className={styles.logoImage} />
 					<div className={styles.titleContainer}>
 						<h2 className={styles.title}>The Directorate</h2>
-						<h3 className={styles.tagLine}>Fear is hesitation, hesitation is defeat.</h3>
+						<h3 className={styles.slogan}>{slogan || <>&nbsp;</>}</h3>
 					</div>
 				</Link>
 
