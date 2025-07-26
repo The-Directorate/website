@@ -4,13 +4,15 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 import styles from "./Header.module.scss";
 
+const apiBase = import.meta.env.VITE_API_URL;
+
 export const Header = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	const [slogan, setSlogan] = useState<{ slogan: string, director: string } | undefined>();
 
 	useEffect(() => {
-		fetch("https://the-directorate.com:3000/slogan")
+		fetch(`${apiBase}/slogan`)
 			.then((res) => res.json())
 			.then((data) => setSlogan({"slogan": data.slogan, "director": data.director}))
 			.catch(() => {});

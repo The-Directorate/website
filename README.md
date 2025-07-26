@@ -2,6 +2,11 @@
 A React + Vite site for "The Directorate," a company in the Ish State Minecraft event (season 2.7: The Purge).
 This project uses TypeScript, SCSS modules, and is set up for deployment to GitHub Pages.
 
+## 🛠️ Requirements
+- Node.js 20.12.0 or newer
+- npm 9+
+- GitHub account (for commiting / forking)
+
 ## 🚀 Quick Start
 ### 1. Download / Clone the Repository
 ```bash
@@ -15,10 +20,16 @@ Then run:
 npm install
 ```
 ### 3. Run Locally
-Start the dev server with:
+Start the dev server \(pointing at remote api\) with:
 ```bash
 npm run dev
 ```
+
+Start the dev server \(pointing at local api\) with:
+```bash
+npm run devLocal
+```
+
 Visit http://localhost:5173/website/ in your browser.
 All code changes will hot-reload automatically.
 
@@ -52,17 +63,11 @@ Uses React Router's HashRouter so routing works on GitHub Pages.
 All navigation should use `<Link to="...">` from react-router-dom, not plain `<a href="...">`.
 
 ## 📂 Directory Structure (Key Folders)
-text
 /src
   /assets         # Images & graphics
   /components     # Reusable components
   /pages          # App pages (Homepage, Board, Directors, etc.)
   /widgets        # Common layout (Header, Footer, and anything that needs to call an API)
-
-## 🛠️ Requirements
-- Node.js 20.12.0 or newer
-- npm 9+
-- GitHub account (for commiting / forking)
 
 ## 🤝 Contributing
 1. Fork the repository and clone your fork
