@@ -4,11 +4,11 @@ import styles from './DiscordLink.module.scss';
 export const DiscordLink = () => {
   return (
 	<a
-	  href="https://discord.gg/Gt3UmecT"
+	  href="https://discord.gg/NyV5ashEJQ"
 	  target="_blank"
 	  rel="noopener noreferrer"
 	  className={styles.discordLink}
-	  aria-label="Join our Discord"
+	  aria-label="Discord Link"
 	>
 	  <img
 	  	className={styles.discordLogo}
