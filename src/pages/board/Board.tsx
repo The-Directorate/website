@@ -5,7 +5,7 @@ import eyeHead from '../../assets/eye.svg';
 import eyeNoPupilHeead from '../../assets/eye_no_pupil.svg';
 import styles from './Board.module.scss';
 
-export const Board = () => {
+const LeaderImage = () => {
 	const blackEyeRef = useRef<HTMLDivElement>(null);
 	const redEyeRef = useRef<HTMLDivElement>(null);
 	const orangeEyeRef = useRef<HTMLDivElement>(null);
@@ -45,6 +45,76 @@ export const Board = () => {
 		};
 	}, []);
 
+	return ( 
+		<div className={styles.directorImage}>
+			<div>
+				<div ref={redSilhouetteRef}>
+					<img
+						className={styles.orangeDirector}
+						src={eyeNoPupilHeead}
+						alt="A siluette of a person with an eye for a head."
+					/>
+				</div>
+				<div ref={orangeSilhouetteRef}>
+					<img
+						className={styles.redDirector}
+						src={eyeNoPupilHeead}
+						alt="A siluette of a person with an eye for a head."
+					/>
+				</div>
+				<div>
+					<img
+						className={styles.blackDirector}
+						src={eyeNoPupilHeead}
+						alt="A siluette of a person with an eye for a head."
+					/>
+				</div>
+			</div>
+
+			<img
+				src={eyeNoPupilHeead}
+				alt="A siluette of a person with an eye for a head."
+			/>
+			
+			<div>
+				<div ref={orangeEyeRef} className={`${styles.parallaxEye} ${styles.orangeEye}`}></div>
+				<div ref={redEyeRef} className={`${styles.parallaxEye} ${styles.redEye}`}></div>
+				<div ref={blackEyeRef} className={styles.parallaxEye}></div>
+			</div>
+		</div>
+	)
+}
+
+type ColumnProps = {
+	className: string,
+	directors: Array<{
+		name: string;
+		position: string;
+	}>
+}
+
+const BoardMemberColumn = ({ className, directors }: ColumnProps) => {
+	return (
+		<div className={className}>
+			{directors.map((director) => (
+				<div key={director.name}>
+					<h2>{director.name}</h2>
+					<p>{director.position}</p>
+				</div>
+			))}
+
+			{className === styles.largeDirectorImage ? <LeaderImage /> : (		
+				<img
+					className={styles.directorImage}
+					src={blockHead}
+					alt="A siluette of a person with a minecraft block for a head."
+				/>
+			)}
+		</div>
+	)
+}
+
+export const Board = () => {
 	return (
 		<>
 			
@@ -59,98 +129,29 @@ export const Board = () => {
 					</p>
 				</section>
 
-				
 				<section className={styles.directorImages}>
-					<div className={styles.smallDirectorImage}>
-						<div>
-							<h2>Director Cyn</h2>
-							<p>Chief Marketing Officer</p>
-						</div>
-						<img
-							className={styles.directorImage}
-							src={blockHead}
-							alt="A siluette of a person with a minecraft block for a head."
-						/>
-					</div>
+					<BoardMemberColumn className={styles.smallDirectorImage} directors={[
+						{ name: "Director Cyn", position: "Chief Marketing Officer" },
+						{ name: "Director N", position: "Chief Intelligence Officer" },
+						{ name: "Director 47", position: "Board Member" }
+					]} />
+					
+					<BoardMemberColumn className={styles.mediumDirectorImage} directors={[
+						{ name: "Director Christie", position: "Chief Strategy Officer" }
+					]} />
 
-					<div className={styles.mediumDirectorImage}>
-						<div>
-							<h2>Director Christie</h2>
-							<p>Chief Strategy Officer</p>
-						</div>
-						<img
-								className={styles.directorImage}
-								src={blockHead}
-								alt="A siluette of a person with a minecraft block for a head."
-							/>
-					</div>
+					<BoardMemberColumn className={styles.largeDirectorImage} directors={[
+						{ name: "Director 7", position: "Chief Executive Officer" }
+					]} />
 
-					<div className={styles.largeDirectorImage}>
-						<div>
-							<h2>Director 7</h2>
-							<p>Chief Executive Officer</p>
-						</div>
-						<div className={styles.directorImage}>
-							<div>
-								<div ref={redSilhouetteRef}>
-									<img
-										className={styles.orangeDirector}
-										src={eyeNoPupilHeead}
-										alt="A siluette of a person with an eye for a head."
-									/>
-								</div>
-								<div ref={orangeSilhouetteRef}>
-									<img
-										className={styles.redDirector}
-										src={eyeNoPupilHeead}
-										alt="A siluette of a person with an eye for a head."
-									/>
-								</div>
-								<div>
-									<img
-										className={styles.blackDirector}
-										src={eyeNoPupilHeead}
-										alt="A siluette of a person with an eye for a head."
-									/>
-								</div>
-							</div>
+					<BoardMemberColumn className={styles.mediumDirectorImage} directors={[
+						{ name: "Director 13", position: "Chief Operations Officer" }
+					]} />
 
-							<img
-								src={eyeNoPupilHeead}
-								alt="A siluette of a person with an eye for a head."
-							/>
-							
-							<div>
-								<div ref={orangeEyeRef} className={`${styles.parallaxEye} ${styles.orangeEye}`}></div>
-								<div ref={redEyeRef} className={`${styles.parallaxEye} ${styles.redEye}`}></div>
-								<div ref={blackEyeRef} className={styles.parallaxEye}></div>
-							</div>
-						</div>
-					</div>
-
-					<div className={styles.mediumDirectorImage}>
-						<div>
-							<h2>Director 13</h2>
-							<p>Chief Operations Officer</p>
-						</div>
-						<img
-							className={styles.directorImage}
-							src={blockHead}
-							alt="A siluette of a person with a minecraft block for a head."
-						/>
-					</div>
-
-					<div className={styles.smallDirectorImage}>
-						<div>
-							<h2>Director Sammie</h2>
-							<p>Chief Development Officer</p>
-						</div>
-						<img
-							className={styles.directorImage}
-							src={blockHead}
-							alt="A siluette of a person with a minecraft block for a head."
-						/>
-					</div>
+					<BoardMemberColumn className={styles.smallDirectorImage} directors={[
+						{ name: "Director Sammie", position: "Chief Development Officer" },
+						{ name: "Director 10", position: "Board Member" }
+					]} />
 				</section>
 			</main>
 
