@@ -98,8 +98,8 @@ const BoardMemberColumn = ({ className, directors }: ColumnProps) => {
 		<div className={className}>
 			{directors.map((director) => (
 				<div key={director.name}>
-					<h2>{director.name}</h2>
-					<p>{director.position}</p>
+					<h2 className={styles.directorName}>{director.name}</h2>
+					<p className={styles.directorPosition}>{director.position}</p>
 				</div>
 			))}
 
