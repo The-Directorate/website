@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import styles from './SuitGenerator.module.scss';
 
 const SUIT_URL =
-	"https://media.discordapp.net/attachments/1397640468791038022/1398834565212143707/suit_template_4.png?ex=6886cdb5&is=68857c35&hm=2af816a9bd0d92cc2debb3d388f4e92da688d1d874facc383eddedc4151cb724&=&format=webp&quality=lossless&width=144&height=144";
+	"https://media.discordapp.net/attachments/479952466897534976/1398847013080141914/suit_template_4.png?ex=6886d94d&is=688587cd&hm=ee635ff932d2d1539c65013c3d1a608a9a310d7326319b8161e1af2b2facf85d&=&format=webp&quality=lossless&width=144&height=144";
 
 
 function getUsernameSkinUrl(username: string) {
