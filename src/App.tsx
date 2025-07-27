@@ -8,6 +8,7 @@ import { Footer } from './widgets/footer/Footer'
 import { Header } from './widgets/header/Header';
 import { Homepage } from './pages/homepage/Homepage'
 import { NotFound } from './pages/notFound/NotFound';
+import { SuitGenerator } from './pages/suitGenerator/SuitGenerator';
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
 
           <Route path="/board" element={<Board />} />
           <Route path="/directors" element={<Directors />} />
+
+          <Route path="/suit_generator" element={<SuitGenerator />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
