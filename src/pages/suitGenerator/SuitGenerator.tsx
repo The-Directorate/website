@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 
 import styles from './SuitGenerator.module.scss';
+import suitTemplate from '../../assets/suit_template.png';
 
 const SUIT_URL =
 	"https://media.discordapp.net/attachments/479952466897534976/1398847013080141914/suit_template_4.png?ex=6886d94d&is=688587cd&hm=ee635ff932d2d1539c65013c3d1a608a9a310d7326319b8161e1af2b2facf85d&=&format=webp&quality=lossless&width=144&height=144";
@@ -24,10 +25,11 @@ export const SuitGenerator = () => {
 	const usernameInputRef = useRef<HTMLInputElement>(null);
 
 	// Load suit image at mount
+
 	React.useEffect(() => {
 		const img = new window.Image();
 		img.crossOrigin = "anonymous";
-		img.src = SUIT_URL;
+		img.src = suitTemplate;
 		img.onload = () => setSuitImg(img);
 	}, []);
 
