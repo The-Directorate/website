@@ -41,9 +41,10 @@ export const Header = () => {
 					</button>
 					
 					<div className={`${styles.navLinks} ${menuOpen ? styles.open : ""}`}>
+						<Link to={"/"} className={styles.navLink}>Home</Link>
 						<Link to={"/board"} className={styles.navLink}>The Board</Link>
 						{/* <Link to={"/directors"} className={styles.navLink}>Directors</Link> */}
-						<Link to={"/test"} className={styles.navLink}>Test</Link>
+						<Link to={"/suit_generator"} className={styles.navLink}>Suit Generator</Link>
 					</div>
 					</nav>
 			</header>
