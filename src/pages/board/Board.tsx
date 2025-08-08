@@ -122,7 +122,7 @@ export const Board = () => {
 				<section className={styles.directors}>
 					<h1 className={styles.title}>The Board of Directors</h1>
 					<p className={styles.intro}>
-						Join the ranks of Directors, the most ambitious and mischievous faction in Ish State's Season 2.7. We are the "bad guys" of the event, known for our distinctive style and bold identity.
+						Join the ranks of Directors, the most ambitious and mischievous faction in Ish State's Season 3.0. We are the "bad guys" of the event, known for our distinctive style and bold identity.
 					</p>
 					<p className={styles.intro}>
 						Recognise us by our iconic black suit and tie, and join us in our quest for dominance.

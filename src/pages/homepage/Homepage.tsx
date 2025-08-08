@@ -10,7 +10,7 @@ export const Homepage = () => {
 				<section className={styles.infoSection}>
 					<h1 className={styles.joinTitle}>Welcome to the Directorate</h1>
 					<p className={styles.intro}>
-						Join our clone-themed company for Ish State's Season 2.7, where Directors unite as the event's most ambitious, mischievous faction.
+						Join our clone-themed company for Ish State's Season 3.0, where Directors unite as the event's most ambitious, mischievous faction.
 					</p>
 					<div className={styles.features}>
 						<p><b>Villain Vibes:</b> We're outwardly "bad guys", no peacekeeping, no neutral stance, we're here for bold, suspicious, and ambitious play.</p>

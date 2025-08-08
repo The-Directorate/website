@@ -1,5 +1,5 @@
 # Directorate Website
-A React + Vite site for "The Directorate," a company in the Ish State Minecraft event (season 2.7: The Purge).
+A React + Vite site for "The Directorate," a company in the Ish State Minecraft event (season 3.0: The Purge).
 This project uses TypeScript, SCSS modules, and is set up for deployment to GitHub Pages.
 
 ## 🛠️ Requirements

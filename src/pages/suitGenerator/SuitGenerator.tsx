@@ -1,5 +1,6 @@
-import React, { useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 
+import Skinview3d from "react-skinview3d";
 import styles from './SuitGenerator.module.scss';
 import suitTemplate from '../../assets/suit_template.png';
 
@@ -92,6 +93,13 @@ export const SuitGenerator = () => {
 		return data[3] === 0;
 	}
 
+	const returnToInput = useCallback(() => {
+		setSkinImg(null);
+		setPreviewUrl(null);
+		setProcessing(false);
+		setError(null);
+	}, []);
+
 
 	// Compose the final image whenever both images are ready
 	React.useEffect(() => {
@@ -104,11 +112,6 @@ export const SuitGenerator = () => {
 
 		// 1. Draw base skin (without outer layers for all but head)
 		// Minecraft skin layout: https://minecraft.fandom.com/wiki/Skin#Skin_files
-		// Head base: (8,8)-(16,16), overlay: (40,8)-(48,16)
-		// Body base: (20,20)-(28,32), overlay: (20,36)-(28,48)
-		// Leg base:  (4,20)-(8,32),   overlay: (4,36)-(8,48)
-		// Arm base:  (44,20)-(48,32), overlay: (44,36)-(48,48)
-		// Draw the entire "inner" skin
 		ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
 		ctx.drawImage(skinImg, 0, 0, CANVAS_SIZE, CANVAS_SIZE);
 
@@ -121,24 +124,37 @@ export const SuitGenerator = () => {
 		ctx.drawImage(suitImg, 0, 0, CANVAS_SIZE, CANVAS_SIZE);
 
 		if (isSlimSkin(skinImg)) {
-			ctx.drawImage(skinImg, 47, 16, 1, 4, 47, 16, 1, 4); // Right arm shoulder 
-			ctx.drawImage(skinImg, 39, 48, 1, 4, 39, 48, 1, 4); // Left arm shoulder 
+			console.log("Slim skin detected");
+			ctx.drawImage(skinImg, 47, 16, 1, 4, 47, 16, 1, 4); // Right arm shoulder
+			ctx.drawImage(skinImg, 39, 48, 1, 4, 39, 48, 1, 4); // Left arm shoulder
 		}
 
 		// 5. Set URL for download/preview
 		setPreviewUrl(canvas.toDataURL("image/png"));
 		setProcessing(false);
+
+		console.log("ready");
 	}, [skinImg, suitImg]);
 
 	return (
 		<main className={styles.container}>
-			<section>
+			<section className={styles.inputSection + " " + (previewUrl ? styles.hidden : "")}>
 				<h1>Suit Up Your Minecraft Skin</h1>
-				<p>
-					Drag &amp; drop your Minecraft skin PNG, <br/>
-					or enter your username to fetch it,<br/>
-					and we'll layer on the suit!
-				</p>
+
+				<div>
+					<p>Enter your Minecraft username to fetch your skin:</p>
+					<input
+						ref={usernameInputRef}
+						type="text"
+						placeholder="Enter Minecraft username"
+						className={styles.usernameInput}
+					/>
+					<button onClick={handleFetchByUsername} className={styles.fetchButton}>
+						Get Skin
+					</button>
+				</div>
+
+				<h2>Or</h2>
 
 				<div
 					className={styles.dropArea}
@@ -155,36 +171,26 @@ export const SuitGenerator = () => {
 						onChange={handleSkinSelect}
 						className={styles.hiddenInput}
 					/>
-					<strong>Drag here to upload your skin,<br/>or click to select PNG file</strong>
+					<p>Drag here to upload your skin,<br/>or click to select PNG file</p>
 				</div>
-
-				<div>
-					<input
-						ref={usernameInputRef}
-						type="text"
-						placeholder="Or enter Minecraft username"
-						className={styles.usernameInput}
-					/>
-					<button onClick={handleFetchByUsername} className={styles.fetchButton}>
-						Get Skin
-					</button>
-				</div>
+				
 				{processing && <div>Processing...</div>}
 				{error && (
 					<div className={styles.error}>{error}</div>
 				)}
 			</section>
 
-			<section>
-				{previewUrl && (
+			{previewUrl && (
+				<section className={styles.previewSection + " " + (previewUrl ? "" : styles.hidden)}>
+					<p className={styles.backLink} onClick={returnToInput}>&lt; back</p>
+
+					<Skinview3d
+						skinUrl={previewUrl}
+						width={300}
+						height={400}
+					/>
+
 					<div>
-						<div>
-							<img
-								src={previewUrl}
-								alt="Preview: suited skin"
-								className={styles.previewImage}
-							/>
-						</div>
 						<a
 							href={previewUrl}
 							download="suited_skin.png"
@@ -193,8 +199,9 @@ export const SuitGenerator = () => {
 							Download PNG
 						</a>
 					</div>
-				)}
-			</section>
+				</section>
+			)}
+
 		</main>
 	);
 }

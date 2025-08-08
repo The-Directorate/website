@@ -40,6 +40,10 @@
 }
 
 
+.previewSection {
+	padding: 16px;
+}
+
 .previewImage {
 	image-rendering: pixelated;
 	width: 192px;
@@ -58,4 +62,18 @@
 	margin-top: 16px;
 }
 
+.backLink {
+	color: var(--directorate-red);
+	text-decoration: none;
+	font-size: 14px;
+	margin-top: 16px;
+	cursor: pointer;
 
+	text-align: left;
+
+	text-decoration: underline;
+}
+
+.hidden{
+	display: none;
+}
