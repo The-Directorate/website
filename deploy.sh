@@ -21,7 +21,7 @@ docker build -t $IMAGE_NAME .
 
 # Run the container, mounting certs
 echo "Running new Docker container on ports 80 and 443 with SSL certs mounted..."
-docker run -d -p 80:80 -p 443:443 \
+docker run -d -p 80:1000 -p 443:1001 \
     --name $CONTAINER_NAME \
     -v $CERT_PATH:/etc/nginx/certs/fullchain.pem:ro \
     -v $KEY_PATH:/etc/nginx/certs/privkey.pem:ro \
