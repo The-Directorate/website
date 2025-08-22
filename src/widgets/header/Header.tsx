@@ -12,10 +12,19 @@ export const Header = () => {
 	const [slogan, setSlogan] = useState<{ slogan: string, director: string } | undefined>();
 
 	useEffect(() => {
-		fetch(`${apiBase}/slogan`)
-			.then((res) => res.json())
-			.then((data) => setSlogan({"slogan": data.slogan, "director": data.director}))
-			.catch(() => {});
+		let intervalId: ReturnType<typeof setInterval>;
+
+		const fetchSlogan = () => {
+			fetch(`${apiBase}/slogan`)
+				.then((res) => res.json())
+				.then((data) => setSlogan({ slogan: data.slogan, director: data.director }))
+				.catch(() => {});
+		};
+
+		fetchSlogan();
+		intervalId = setInterval(fetchSlogan, 10000);
+
+		return () => clearInterval(intervalId);
 	}, []);
 
 	return (
@@ -46,9 +55,8 @@ export const Header = () => {
 						{/* <Link to={"/directors"} className={styles.navLink}>Directors</Link> */}
 						<Link to={"/suit_generator"} className={styles.navLink}>Suit Generator</Link>
 					</div>
-					</nav>
+				</nav>
 			</header>
 		</>
-
 	)
 }
