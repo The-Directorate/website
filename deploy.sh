@@ -20,8 +20,8 @@ docker image prune -f
 docker build -t $IMAGE_NAME .
 
 # Run the container, mounting certs
-echo "Running new Docker container on ports 80 and 443 with SSL certs mounted..."
-docker run -d -p 80:1000 -p 443:1001 \
+echo "Running new Docker container on ports 1000 and 1001 with SSL certs mounted..."
+docker run -d -p 1000:80 -p 1001:443 \
     --name $CONTAINER_NAME \
     -v $CERT_PATH:/etc/nginx/certs/fullchain.pem:ro \
     -v $KEY_PATH:/etc/nginx/certs/privkey.pem:ro \
